@@ -10,18 +10,28 @@ class Dice extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.black87,
+          backgroundColor: Colors.blueGrey,
           title: Center(child: Text("Lets Play Dice !")),
         ),
-        body: SafeArea(
-          child: Row(
-            children: [
-              Expanded(
-                child: Image(
-                  image: AssetImage('/assets/dice1.png'),
+        backgroundColor: Colors.black54,
+        body: Center(
+          child: SafeArea(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Image.asset('assets/dice1.png'),
+                  ),
                 ),
-              ),
-            ],
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Image.asset('assets/dice1.png'),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
