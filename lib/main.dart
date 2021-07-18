@@ -1,17 +1,27 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(Dice());
 }
 
-class Dice extends StatelessWidget {
+class Dice extends StatefulWidget {
+  @override
+  _DiceState createState() => _DiceState();
+}
+
+class _DiceState extends State<Dice> {
+  int leftDice = 1;
+  int rightDice = 1;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blueGrey,
-          title: Center(child: Text("Lets Play Dice !")),
+          title: Center(
+            child: Text("Lets Play Dice !"),
+          ),
         ),
         backgroundColor: Colors.black54,
         body: Center(
@@ -20,18 +30,22 @@ class Dice extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextButton(
-                    child: Image.asset('assets/dice1.png'),
                     onPressed: () {
-                      print("The left button got pressed");
+                      setState(() {
+                        leftDice = Random().nextInt(6) + 1;
+                      });
                     },
+                    child: Image.asset('assets/dice$leftDice.png'),
                   ),
                 ),
                 Expanded(
                   child: TextButton(
-                    child: Image.asset('assets/dice1.png'),
                     onPressed: () {
-                      print("The right button got pressed");
+                      setState(() {
+                        rightDice = Random().nextInt(6) + 1;
+                      });
                     },
+                    child: Image.asset('assets/dice$rightDice.png'),
                   ),
                 ),
               ],
